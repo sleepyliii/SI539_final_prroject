@@ -1,0 +1,24 @@
+<div class="hover-container">
+    Hover over me!
+  </div>
+  
+  /* CSS */
+  <style>
+    .hover-container {
+      /* Set initial background to transparent */
+      background: linear-gradient(#1095c1 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+      transition: 0.4s, background-position 0s; /* Optional color transition */
+      width: 200px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+      padding: 20px; /* Add some padding for readability */
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .hover-container:hover {
+      /* Reveal the background on hover */
+      --p: 100%; /* Set the background size to 100% */
+      color: #ffffff; /* Change text color for better visibility */
+    }
+  </style>

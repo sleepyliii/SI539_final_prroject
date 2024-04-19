@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fireworks</title>
+    <link rel="stylesheet" type="text/css" href="css/html5reset.css">
+    <link rel="stylesheet" type="text/css" href="css/firework.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tac+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Tac+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Pacifico&family=Tac+One&display=swap"
+        rel="stylesheet">
+    <script src="drop_down.js"></script>
+    <script src="flip_card.js"></script>
+    <title>Display a popup on hover</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: relative;
+            overflow: visible;
+            top: 0;
+            bottom: 0;
+            height: 60vh;
+            width: 60vw;
+            margin: 30px;
+        }
+    </style>
+</head>
+<main>
+
+    <body>
+        <header>
+            <div><a href="#main" class="skip">Skip to Main</a></div>
+            <nav>
+                <ul class="grid-link">
+                    <li class="link1"><a href = "index.html">Home</a></li>
+                    <li class="current, link_current"><a href = "movie.html" class="active">Movies</a></li>
+                    <li class="link2"><a href= "character.html">Characters</a></li>
+                    <li class="link3"><a href="disneyland.html">Disneyland</a></li>
+                </ul>
+            </nav>
+        </header>
+        <style>
+            .mapboxgl-popup {
+                max-width: 400px;
+                font:
+                    20px 'Helvetica Neue',
+                    Arial,
+                    Helvetica,
+                    sans-serif;
+            }
+        </style>
+        
+
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="text-container">
+            <h1><span>Welcome to the</span>
+                Disneylands</h1>
+        </div>
+        <div>
+            <img src="images/mickey_yellow.png" class="mickeyhead2" alt="an image of yellow mickey mouse head"
+                width="100%" />
+        </div>
+        <div class="mickeyhead">
+            <img src="images/mickey_red.png" alt="an image of red mickey mouse head" width="100%" />
+        </div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Links</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div id="description_card">
+            <p>hellp</p>
+        </div>
+            <script>
+                window.onload = function () {
+                    // Check if the button exists in the DOM
+                    var attributionButton = document.querySelector('button.mapboxgl-ctrl-attrib-button');
+
+                    if (attributionButton) {
+                        // Create a text node
+                        var text = document.createTextNode('Attribution');
+
+                        // Append the text node to the button
+                        attributionButton.appendChild(text);
+                    }
+                };
+                mapboxgl.accessToken = 'pk.eyJ1IjoieXhtaW4iLCJhIjoiY2x2M2J1NGQxMHM2YTJscDcxa3NudTVqMSJ9.VE1VWJRuI8KcMKYDiB8McA';
+                const map = new mapboxgl.Map({
+                    container: 'map',
+                    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+                    style: 'mapbox://styles/yxmin/clv483z54026w01p69cvmhnli',
+                    center: [-81.332, 28.510],
+                    zoom: 9.5
+                });
+
+                map.on('load', () => {
+                    map.addSource('places', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'FeatureCollection',
+                            'features': [
+                                {
+                                    'type': 'Feature',
+                                    'properties': {
+                                        'description':
+                                            'Epcot'
+                                    },
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [-81.549, 28.375]
+                                    }
+                                },
+
+                                {
+                                    'type': 'Feature',
+                                    'properties': {
+                                        'description':
+                                            '<strong>Muhsinah</strong><p>Jazz-influenced hip hop artist Muhsinah plays the Black Cat (1811 14th Street NW) tonight with Exit Clov and Gods’illa. 9:00 p.m. $12.</p>'
+                                    },
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [-77.031706, 38.914581]
+                                    }
+                                },
+                                {
+                                    'type': 'Feature',
+                                    'properties': {
+                                        'description':
+                                            "<strong>A Little Night Music</strong><p>The Arlington Players' production of Stephen Sondheim's <em>A Little Night Music</em> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>"
+                                    },
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [-77.020945, 38.878241]
+                                    }
+                                },
+                                {
+                                    'type': 'Feature',
+                                    'properties': {
+                                        'description':
+                                            '<strong>Truckeroo</strong><p>Truckeroo brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>'
+                                    },
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [-77.007481, 38.876516]
+                                    }
+                                }
+                            ]
+                        }
+                    });
+                    map.loadImage('images/mickey_red.png', function (error, image) {
+                        if (error) throw error;
+                        map.addImage('mickey', image);
+                        // Add a layer showing the places.
+                        map.addLayer({
+                            'id': 'places',
+                            'type': 'symbol',
+                            'source': 'places',
+                            'layout': {
+                                'icon-image': 'mickey', // Reference to the image added above
+                                'icon-size': 0.03, // Scales the size of the icon
+
+                            }
+                        });
+                    });
+
+                    // Create a popup, but don't add it to the map yet.
+                    const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                        closeOnClick: false
+                    });
+
+                    map.on('mouseenter', 'places', (e) => {
+                        // Change the cursor style as a UI indicator.
+                        map.getCanvas().style.cursor = 'pointer';
+
+                        // Copy coordinates array.
+                        const coordinates = e.features[0].geometry.coordinates.slice();
+                        const description = e.features[0].properties.description;
+
+                        // Ensure that if the map is zoomed out such that multiple
+                        // copies of the feature are visible, the popup appears
+                        // over the copy being pointed to.
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
+
+                        // Populate the popup and set its coordinates
+                        // based on the feature found.
+                        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+                    });
+
+                    map.on('mouseleave', 'places', () => {
+                        map.getCanvas().style.cursor = '';
+                        popup.remove();
+                    });
+                });
+            </script>
+        
+</main>
+</body>
+
+</html>
