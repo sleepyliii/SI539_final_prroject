@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Fireworks</title>
+  <title>Disneylands</title>
   <link rel="stylesheet" type="text/css" href="css/html5reset.css">
   <link rel="stylesheet" type="text/css" href="css/firework.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -19,11 +19,41 @@
     rel="stylesheet">
   <script src="drop_down.js"></script>
   <script src="flip_card.js"></script>
-  <title>Display a popup on hover</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
   <style>
+    #description_card {
+      width: 80%;
+      margin: auto;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 30px;
+      background-color: rgba(255, 255, 255, 0.295);
+      padding: 90px 60px 80px 60px;
+      border-radius: 30px;
+      box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.5);
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-left: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    #description_card img {
+      margin: auto;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .mapboxgl-popup {
+      max-width: 400px;
+        font-size: 17px;
+      color: rgb(0, 0, 0);
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      text-align: center;
+      font-weight: 900;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -93,39 +123,7 @@
       </ul>
     </nav>
   </header>
-  <style>
-    #description_card {
-      width: 80%;
-      margin: auto;
-      justify-content: space-evenly;
-      align-items: center;
-      gap: 30px;
-      background-color: rgba(255, 255, 255, 0.295);
-      padding: 90px 60px 80px 60px;
-      border-radius: 30px;
-      box-shadow: 20px 20px 50px rgb(0, 0, 0, 0.5);
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.5);
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(5px);
-    }
 
-    #description_card img {
-      margin: auto;
-      display: block;
-      border-radius: 50%;
-    }
-
-    .mapboxgl-popup {
-      max-width: 400px;
-        font-size: 17px;
-      color: rgb(0, 0, 0);
-      font-family: "Cormorant Garamond", serif;
-      font-style: italic;
-      text-align: center;
-      font-weight: 900;
-    }
-  </style>
   <main id="main">
 
     <div class="firework"></div>
@@ -135,10 +133,10 @@
         Disneylands</h1>
     </div>
     <div>
-      <img src="images/mickey_yellow.png" class="mickeyhead2" alt="an image of yellow mickey mouse head" width="100%" />
+      <img src="images/mickey_yellow.png" class="mickeyhead2" alt="an image of yellow mickey mouse head" >
     </div>
     <div class="mickeyhead">
-      <img src="images/mickey_red.png" alt="an image of red mickey mouse head" width="100%" />
+      <img src="images/mickey_red.png" alt="an image of red mickey mouse head" >
     </div>
     <div id="map_description">
       <div id="map"></div>
