@@ -574,22 +574,14 @@ border-radius: 50%;
       top: 30%; /* Adjust the top position */
       left: 10%; /* Adjust the left position */
     }
-    
-    .character-card a {
-      top: 20%; /* Adjust the top position */
-      left: 10%; /* Adjust the left position */
-      color: inherit;
-      text-decoration: none;
-    }
-    
+  
     .character-card:hover h3 {
-      top: 15%; /* Adjust the top position */
-      left: 10%; /* Adjust the left position */
-      transition: top 0.5s ease-out, left 0.5s ease-out; /* Slower transition */
+      top: 15%; 
+      left: 10%; 
+      transition: top 0.5s ease-out, left 0.5s ease-out; 
     }
     
-    .character-card:hover p,
-    .character-card:hover a {
+    .character-card:hover p {
       opacity: 1;
       transition: opacity .5s .1s ease-in;
     }
